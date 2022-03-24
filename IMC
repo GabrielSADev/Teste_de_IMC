@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i;
+    char opc;
+    float peso, altura, imc;
+
+    do {
+        for(i=0; i < 10; i++) {
+            printf("Usuário %d\n", i+1);
+            printf("Digite seu peso: ");
+            scanf("%f", &peso);
+            getchar();
+            printf("Digite sua altura: ");
+            scanf("%f", &altura);
+            getchar();
+
+            imc = peso / (altura*altura);
+
+            printf("IMC - ");
+            if(imc >= 18.5 && imc < 25)
+                printf("Normal\n");
+            else if(imc >= 25 && imc < 30)
+                printf("Sobrepeso\n");
+            else if(imc >= 30  && imc < 40)
+                printf("Obesidade\n");
+            else if(imc >= 40)
+                printf("Obesidade grave\n");
+            else
+                printf("Erro\n"); // Não foi definida a faixa abaixo de 18.5
+        }
+
+        printf("Deseja calcular outros IMCs? (S/N) ");
+        scanf("%c", &opc);
+        getchar();
+
+    } while(opc == 'S' || opc == 's');
+
+    return 0;
+}
